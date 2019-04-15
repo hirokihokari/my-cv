@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+
+// material-ui core modules
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+  App: { },
+});
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className={classes.App}>
+        <CssBaseline/>
       </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
