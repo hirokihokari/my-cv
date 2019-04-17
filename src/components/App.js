@@ -4,8 +4,10 @@ import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/core/styles';
 
+import FullPage from '../components/FullPage';
+
 const styles = theme => ({
-  App: { },
+  app: { },
 });
 
 class App extends Component {
@@ -17,8 +19,9 @@ class App extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.App}>
+      <div className={classes.app}>
         <CssBaseline/>
+        <FullPage />
       </div>
     );
   }
