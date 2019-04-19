@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/core/styles';
 
 import FullPage from '../components/FullPage';
+import Navbar from '../components/Navbar';
 
 const styles = theme => ({
   app: { },
@@ -21,6 +22,7 @@ class App extends Component {
     return (
       <div className={classes.app}>
         <CssBaseline/>
+        <Navbar />
         <FullPage />
       </div>
     );

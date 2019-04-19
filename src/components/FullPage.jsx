@@ -1,14 +1,22 @@
 import React from 'react';
 
+// material-ui
 import { withStyles } from '@material-ui/core/styles';
 
 // fullPage
 import ReactFullpage from '@fullpage/react-fullpage';
 
+// own
+import Title from '../components/Title';
+
 const styles = theme => ({
+  root: {},
+  section: {
+    textAlign: 'center',
+  },
 });
 
-const anchors = ["firstPage", "secondPage", "thirdPage"];
+const anchors = ["page1", "page2", "page3"];
 
 const FullPage = (props) => {
   const { classes } = props;
@@ -17,6 +25,7 @@ const FullPage = (props) => {
     <ReactFullpage
       anchors={anchors}
       navigation
+      menu="#menu"
       navigationPosition='right'
       slidesNavigation
       slidesNavPosition='bottom'
@@ -24,16 +33,13 @@ const FullPage = (props) => {
         return (
           <ReactFullpage.Wrapper>
             <div className={"section " + classes.section}>
-              <p>Section 1 (welcome to fullpage.js)</p>
-              <button onClick={() => fullpageApi.moveSectionDown()}>
-                Click me to move down
-              </button>
+              <Title/>
             </div>
             <div className={"section " + classes.section}>
               <p>Section 2 (welcome to fullpage.js)</p>
-              <button onClick={() => fullpageApi.moveSectionDown()}>
-                Click me to move down
-              </button>
+            </div>
+            <div className={"section " + classes.section}>
+              <p>Section 3 (welcome to fullpage.js)</p>
             </div>
           </ReactFullpage.Wrapper>
         );
