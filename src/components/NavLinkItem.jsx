@@ -32,6 +32,7 @@ const NavLinkItem = (props) => {
   const {
     classes,
     page,
+    to,
   } = props;
 
   return (
@@ -39,9 +40,9 @@ const NavLinkItem = (props) => {
       className={classes.root}
       data-menuanchor={page}>
       <Link
-        href={"#" + page}
+        href={"#" + (to || page)}
         className={classes.navLink}>
-        <Typography variant="h6">{page.toUpperCase()}</Typography>
+        <Typography variant="body1">{page.toUpperCase()}</Typography>
       </Link>
     </ListItem>
   )

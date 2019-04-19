@@ -4,8 +4,10 @@ import React, { Component } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/core/styles';
 
+// own
 import FullPage from '../components/FullPage';
 import Navbar from '../components/Navbar';
+import BackToTop from '../components/BackToTop';
 
 const styles = theme => ({
   app: { },
@@ -24,6 +26,7 @@ class App extends Component {
         <CssBaseline/>
         <Navbar />
         <FullPage />
+        <BackToTop/>
       </div>
     );
   }
