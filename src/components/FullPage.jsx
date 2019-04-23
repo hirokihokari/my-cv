@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ReactFullpage from '@fullpage/react-fullpage';
 
 // own
+import Page from '../components/Page';
 import Title from '../components/Title';
 import Skills from '../components/Skills';
 import Biography from '../components/Biography';
@@ -16,9 +17,6 @@ import AboutThisPage from '../components/AboutThisPage';
 
 const styles = theme => ({
   root: {},
-  section: {
-    textAlign: 'center',
-  },
 });
 
 const anchors = ["Title", "Skills", "Bio", "Contact", "Projects", "ThisPage"];
@@ -37,24 +35,12 @@ const FullPage = (props) => {
       render={({ state, fullpageApi }) => {
         return (
           <ReactFullpage.Wrapper>
-            <div className={"section " + classes.section}>
-              <Title/>
-            </div>
-            <div className={"section " + classes.section}>
-              <Skills/>
-            </div>
-            <div className={"section " + classes.section}>
-              <Biography/>
-            </div>
-            <div className={"section " + classes.section}>
-              <Contact/>
-            </div>
-            <div className={"section " + classes.section}>
-              <Projects/>
-            </div>
-            <div className={"section " + classes.section}>
-              <AboutThisPage/>
-            </div>
+            <Page index={0} component={<Title/>}/>
+            <Page index={1} component={<Skills/>}/>
+            <Page index={2} component={<Biography/>}/>
+            <Page index={3} component={<Contact/>}/>
+            <Page index={4} component={<Projects/>}/>
+            <Page index={5} component={<AboutThisPage/>}/>
           </ReactFullpage.Wrapper>
         );
       }}
