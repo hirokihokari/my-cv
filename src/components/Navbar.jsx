@@ -32,10 +32,10 @@ const Navbar = (props) => {
         <List id="menu" className={classes.menu}>
           <NavLinkItem page="Title" className={classes.menuItem}/>
           <NavLinkItem page="Skills" className={classes.menuItem}/>
-          <NavLinkItem page="Bio" className={classes.menuItem}/>
+          <NavLinkItem page="History" className={classes.menuItem}/>
           <NavLinkItem page="Contact" className={classes.menuItem}/>
           <NavLinkItem page="Projects" className={classes.menuItem}/>
-          <NavLinkItem page="This Page" to="ThisPage" className={classes.menuItem}/>
+          <NavLinkItem page="This&nbsp;Page" to="ThisPage" className={classes.menuItem}/>
         </List>
       </Toolbar>
     </header>

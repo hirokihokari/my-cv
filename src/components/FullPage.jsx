@@ -10,7 +10,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import Page from '../components/Page';
 import Title from '../components/Title';
 import Skills from '../components/Skills';
-import Biography from '../components/Biography';
+import History from '../components/History';
 import Contact from '../components/Contact';
 import Projects from '../components/Projects';
 import AboutThisPage from '../components/AboutThisPage';
@@ -19,7 +19,7 @@ const styles = theme => ({
   root: {},
 });
 
-const anchors = ["Title", "Skills", "Bio", "Contact", "Projects", "ThisPage"];
+const anchors = ["Title", "Skills", "History", "Contact", "Projects", "ThisPage"];
 
 const FullPage = (props) => {
   const { classes } = props;
@@ -37,7 +37,7 @@ const FullPage = (props) => {
           <ReactFullpage.Wrapper>
             <Page index={0} component={<Title/>}/>
             <Page index={1} component={<Skills/>}/>
-            <Page index={2} component={<Biography/>}/>
+            <Page index={2} component={<History/>}/>
             <Page index={3} component={<Contact/>}/>
             <Page index={4} component={<Projects/>}/>
             <Page index={5} component={<AboutThisPage/>}/>
