@@ -20,7 +20,7 @@ const styles = theme => ({
   },
   row: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
     marginBottom: '2rem',
