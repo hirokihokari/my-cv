@@ -21,48 +21,26 @@ const styles = theme => ({
   root: {
   },
   thumb: {
-    width: 100,
-    flexGrow: 0,
-    flexShrink: 1,
+    border: 'solid 1px rgba(0,0,0,0.3)',
+    borderRadius: 10,
+    width: 200,
     height: 100,
-    position: 'relative',
-    top: 0,
-    left: 0,
     margin: '0.5rem',
-    transition: 'scale .5s, top .3s, left .3s',
+    '&>*': { lineHeight: '100px' },
     '&:hover': {
       cursor: 'pointer',
-    },
-    '&.active': {
-      zIndex: 5,
-      transform: 'scale(1.5)',
-      opacity: 0,
-    },
-    '&:hover': {
-      boxShadow: '10px 10px 11px rgba(33,33,33,.2)',
-      cursor: 'pointer',
-      top: -5,
-      left: -5,
+      backgroundColor: 'rgba(0,0,0,0.1)',
     },
   },
   detail: {
     position: 'absolute',
-    top: '55%',
-    left: '55%',
+    top: '50%',
+    left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '100%',
     maxWidth: '700px',
     minHeight: '30vh',
     padding: '3rem',
-    visibility: 'hidden',
-    opacity: 0,
-    zIndex: 1,
-    transition: 'visibility 0s, opacity 1s',
-    '&.active': {
-      visibility: 'visible',
-      opacity: 1,
-      zIndex: 5,
-    },
   },
   closeBtn: {
     float: 'right',
@@ -87,21 +65,17 @@ class SkillBox extends Component {
       classes
     } = this.props;
 
-    const rootClasses = classes.root + " " + mode;
-    const thumbClasses = classes.thumb + " " + mode;
-    const detailClasses = classes.detail + " " + mode;
-
     return (
-      <div className={rootClasses}>
-        <div className={thumbClasses} onClick={onClick(id)}>
-          <SquareImage src={thumbnail}/>
+      <div className={classes.root}>
+        <div className={classes.thumb} onClick={onClick(id)}>
+          <Typography variant="h6" align="center">{title}</Typography>
         </div>
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
           open={mode=="active"}
           onBackdropClick={onClose}>
-          <Paper className={detailClasses}>
+          <Paper className={classes.detail}>
             <IconButton className={classes.closeBtn} onClick={onClose} aria-label="Close">
               <Close/>
             </IconButton>
