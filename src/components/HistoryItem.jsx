@@ -28,6 +28,9 @@ const styles = theme => ({
     },
   },
   detail: {
+    borderLeft: 'solid 1px rgba(0,0,0,0.3)',
+    borderRight: 'solid 1px rgba(0,0,0,0.3)',
+    borderRadius: 4,
     opacity: 0,
     transition: 'opacity 1s',
     '&.open': {
