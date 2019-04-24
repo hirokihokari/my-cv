@@ -9,6 +9,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
+import Modal from '@material-ui/core/Modal';
 
 // material-ui icons
 import Close from '@material-ui/icons/Close';
@@ -83,7 +84,6 @@ class SkillBox extends Component {
       mode,
       onClick,
       onClose,
-      onClickAway,
       classes
     } = this.props;
 
@@ -96,7 +96,11 @@ class SkillBox extends Component {
         <div className={thumbClasses} onClick={onClick(id)}>
           <SquareImage src={thumbnail}/>
         </div>
-        <ClickAwayListener onClickAway={onClickAway}>
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={mode=="active"}
+          onBackdropClick={onClose}>
           <Paper className={detailClasses}>
             <IconButton className={classes.closeBtn} onClick={onClose} aria-label="Close">
               <Close/>
@@ -116,7 +120,7 @@ class SkillBox extends Component {
               }
             </List>
           </Paper>
-        </ClickAwayListener>
+        </Modal>
       </div>
     )
   }

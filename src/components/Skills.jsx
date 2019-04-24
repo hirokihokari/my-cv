@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 // material-ui
 import { withStyles } from '@material-ui/core/styles';
-import Backdrop from '@material-ui/core/Backdrop';
 import Typography from '@material-ui/core/Typography';
 
 // own
@@ -75,11 +74,9 @@ class Skills extends Component {
         sk.id = i;
         return sk;
       }),
-      detailOpen: false,
     };
 
     this.handleBoxClick = this.handleBoxClick.bind(this);
-    this.handleClickAway = this.handleClickAway.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
 
@@ -89,10 +86,9 @@ class Skills extends Component {
     const active = skills.filter( sk => sk.id == id)[0];
     active.mode = "active";
 
-    this.setState({ skills: skills, detailOpen: true });
+    this.setState({ skills: skills });
   }
 
-  handleClickAway() { this.resetMode() }
   handleClose() { this.resetMode() }
 
   resetMode() {
@@ -100,7 +96,7 @@ class Skills extends Component {
     let sks = skills.slice(0);
     for(let i=0; i<sks.length; i++) { sks[i].mode = "inactive"; }
 
-    this.setState({ skills: sks, detailOpen: false });
+    this.setState({ skills: sks });
   }
 
   render() {
@@ -109,7 +105,6 @@ class Skills extends Component {
 
     return (
       <div className={classes.root}>
-        <Backdrop open={detailOpen} transitionDuration={{enter: 1000}}/>
         <Typography variant="h4" gutterBottom>Backend</Typography>
         <div className={classes.row}>
           { be_skills.map((sk) => {
@@ -124,7 +119,6 @@ class Skills extends Component {
                 thumbnail={sk.logo || ruby_logo}
                 onClick={this.handleBoxClick}
                 onClose={this.handleClose}
-                onClickAway={this.handleClickAway}
               />
             )
           })}
@@ -143,7 +137,6 @@ class Skills extends Component {
                 thumbnail={sk.logo || ruby_logo}
                 onClick={this.handleBoxClick}
                 onClose={this.handleClose}
-                onClickAway={this.handleClickAway}
               />
             )
           })}
