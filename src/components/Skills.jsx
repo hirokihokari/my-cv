@@ -31,36 +31,36 @@ const styles = theme => ({
 const be_skills = [
   {
     title: "Ruby",
-    desc: "Ruby is an interpreted, high-level, general-purpose programming language. It was designed and developed in the mid-1990s by Yukihiro \"Matz\" Matsumoto in Japan.",
-    list: ['Ruby on Rails'],
+    desc: "Main language to work on; most of the time, use it within Ruby on Rails. I try to keep it as simple as possible, and recently tend to use it for only \"application server\" specific tasks such as communication with databases and returning api requests. For testing, RSpec is the framework I'm most familiar with.",
     logo: ruby_logo,
+    familiar_with: [ 'Ruby on Rails', 'RSpec', ],
   },
   {
     title: "AWS",
-    desc: "Amazon Web Services (AWS) is a subsidiary of Amazon that provides on-demand cloud computing platforms to individuals, companies and governments, on a metered pay-as-you-go basis. In aggregate, these cloud computing web services provide a set of primitive, abstract technical infrastructure and distributed computing building blocks and tools. One of these services is Amazon Elastic Compute Cloud, which allows users to have at their disposal a virtual cluster of computers, available all the time, through the Internet. AWS's version of virtual computers emulate most of the attributes of a real computer including hardware (CPU(s) & GPU(s) for processing, local/RAM memory, hard-disk/SSD storage); a choice of operating systems; networking; and pre-loaded application software such as web servers, databases, CRM, etc.",
-    list: [],
+    desc: "I set up server either here or on Heroku, but for liaison with other services, and scalability, tend to use AWS more often. Usual setup is Route53 -> Load Balancer -> EC2 with redundancy in different AV -> RDS in private subnet also in different AV for redundancy.",
     logo: aws_logo,
+    familiar_with: [ 'Load Balancer(ALB etc)', 'Route53', 'Certificate Manager', 'EC2', 'RDS', 'S3', ],
   },
 ]
 
 const fe_skills = [
   {
     title: "Javascript",
-    desc: "JavaScript (/ˈdʒɑːvəˌskrɪpt/),[8] often abbreviated as JS, is a high-level, interpreted programming language that conforms to the ECMAScript specification. JavaScript has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.",
-    list: ['ES5', 'ES6', 'React'],
+    desc: "Usually either use jQuery to handle minor DOM manipulation and/or use React to render DOM. I'm no designer, so often get help of desiged framework/library such as Bootstrap or Material Design.",
     logo: js_logo,
+    familiar_with: [ 'ES5', 'ES6', 'React', 'jQuery', 'Bootstrap', 'Material Design', ],
   },
   {
     title: "HTML",
-    desc: "Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript, it forms a triad of cornerstone technologies for the World Wide Web.[4]",
-    list: [],
+    desc: "Either erb/haml/slim when I render with Rails, and React for more SPA application. Use tags semantically that corresponds with the actual structure of the page.",
     logo: html_logo,
+    familiar_with: [ 'html5', 'haml', 'slim', '(erb)', ],
   },
   {
     title: "CSS",
-    desc: "Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.[1] CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.[2]",
-    list: [],
+    desc: "Tend to use cssd-in-js style, but adheres to BEM otherwise.",
     logo: css_logo,
+    familiar_with: [ 'CSS3', 'SASS(.sass/.scss)', 'BEM', ]
   },
 ];
 
@@ -115,7 +115,7 @@ class Skills extends Component {
                 mode={sk.mode}
                 title={sk.title}
                 desc={sk.desc}
-                list={sk.list}
+                familiar_with={sk.familiar_with}
                 thumbnail={sk.logo || ruby_logo}
                 onClick={this.handleBoxClick}
                 onClose={this.handleClose}
@@ -133,7 +133,7 @@ class Skills extends Component {
                 mode={sk.mode}
                 title={sk.title}
                 desc={sk.desc}
-                list={sk.list}
+                familiar_with={sk.familiar_with}
                 thumbnail={sk.logo || ruby_logo}
                 onClick={this.handleBoxClick}
                 onClose={this.handleClose}

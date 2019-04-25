@@ -6,6 +6,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
+import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
@@ -57,13 +58,14 @@ class SkillBox extends Component {
       id,
       title,
       desc,
-      list,
+      familiar_with,
       thumbnail,
       mode,
       onClick,
       onClose,
       classes
     } = this.props;
+    console.log(familiar_with);
 
     return (
       <div className={classes.root}>
@@ -80,14 +82,12 @@ class SkillBox extends Component {
               <Close/>
             </IconButton>
             <Typography variant="h4" gutterBottom>{title}</Typography>
-            <Typography variant="body1">{desc}</Typography>
-            <List>
-              { list.map( (item, i) => {
+            <Typography variant="h6" gutterBottom>{desc}</Typography>
+            <List dense subheader={<ListSubheader>I&apos;m familiar with: </ListSubheader>}>
+              { familiar_with.map( (item, i) => {
                   return (
                     <ListItem key={i}>
-                      <ListItemText
-                        primary={item}
-                        secondary="some description text" />
+                      <ListItemText primary={item}/>
                     </ListItem>
                   )
                 })
