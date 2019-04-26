@@ -4,6 +4,10 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const styles = theme => ({
   root: {
@@ -46,6 +50,8 @@ const HistoryItem = (props) => {
     open,
     period,
     title,
+    responsibilities,
+    projects,
     detail,
     onClick,
   } = props;
@@ -60,10 +66,29 @@ const HistoryItem = (props) => {
         <Typography variant="h5">{title}</Typography>
       </Button>
       <div className={detailClasses}>
-        { detail }
+        <List dense subheader={<ListSubheader>Responsibilities: </ListSubheader>}>
+          { responsibilities.map((r, i) => {
+              return (
+                <ListItem>
+                  <ListItemText primary={r} />
+                </ListItem>
+              )
+            })
+          }
+        </List>
+        <List dense subheader={<ListSubheader>Projects: </ListSubheader>}>
+          { projects.map((p, i) => {
+              return (
+                <ListItem>
+                  <ListItemText primary={p.name} secondary={p.detail}/>
+                </ListItem>
+              )
+            })
+          }
+        </List>
       </div>
     </div>
-  );
-}
+    );
+  }
 
 export default withStyles(styles)(HistoryItem);

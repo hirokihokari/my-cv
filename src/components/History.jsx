@@ -22,49 +22,37 @@ class History extends Component {
           open: false,
           period: '2018 / 9 ~ Present',
           title: 'Freelance Web Developer',
-          detail: (
-            <List>
-              <ListItem>
-                <ListItemText
-                  primary='アイテム'
-                  secondary={'sub text'} />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary='アイテム'
-                  secondary={'sub text'} />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary='アイテム'
-                  secondary={'sub text'} />
-              </ListItem>
-            </List>
-          )
+          responsibilities: [
+            'Design and Structure application through communication with project owner/manager',
+            'Develop  code with: 1. Agile principle / MVP, 2. Behavior Driven procedure, 3. Maintainable, semantic coding',
+          ],
+          projects: [
+            {
+              name: 'Package Purchasing Platform',
+              detail: 'A web application with User Interface for purchase a service, using apis from an existing project',
+              technologies: [ 'EC2/RDS', 'Ruby on Rails', 'React', 'Chargebee', ]
+            },
+            {
+              name: 'Community SNS',
+              detail: 'An SNS service where users/guests can post and reply texts and/or images',
+              technologies: [ 'EC2/RDS', 'Ruby on Rails', 'Javascript/jQuery', ]
+            },
+          ],
         },
         {
           open: false,
           period: '2016 / 3 ~ 2018 / 8',
           title: 'Web Dev at Incubit (Tokyo)',
-          detail: (
-            <List>
-              <ListItem>
-                <ListItemText
-                  primary='アイテム'
-                  secondary={'sub text'} />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary='アイテム'
-                  secondary={'sub text'} />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary='アイテム'
-                  secondary={'sub text'} />
-              </ListItem>
-            </List>
-          )
+          responsibilities: [
+            ''
+          ],
+          projects: [
+            {
+              name: '',
+              detail: '',
+              technologies: [ '', ],
+            }
+          ]
         },
       ],
     };
@@ -101,7 +89,8 @@ class History extends Component {
                 open={item.open}
                 period={item.period}
                 title={item.title}
-                detail={item.detail}
+                responsibilities={item.responsibilities}
+                projects={item.projects}
                 onClick={this.handleItemClick}/>
             )
           })
