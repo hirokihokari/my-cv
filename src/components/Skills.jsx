@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 // own
-import SkillBox from '../components/SkillBox';
+import SkillBox from './SkillBox';
 
 // images
 import ruby_logo from '../images/Ruby_logo.png';

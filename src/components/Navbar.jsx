@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 
 // own
-import NavLinkItem from '../components/NavLinkItem';
+import NavLinkItem from './NavLinkItem';
 
 const styles = theme => ({
   root: {

@@ -16,7 +16,7 @@ import Modal from '@material-ui/core/Modal';
 import Close from '@material-ui/icons/Close';
 
 // own
-import SquareImage from '../components/SquareImage';
+import SquareImage from './SquareImage';
 
 const styles = theme => ({
   root: {

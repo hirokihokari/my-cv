@@ -5,9 +5,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/core/styles';
 
 // own
-import FullPage from '../components/FullPage';
-import Navbar from '../components/Navbar';
-import BackToTop from '../components/BackToTop';
+import FullPage from './FullPage';
+import Navbar from './Navbar';
+import BackToTop from './BackToTop';
 
 const styles = theme => ({
   app: { },

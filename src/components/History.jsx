@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 
 // material-ui
 import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 
 // own
-import HistoryItem from '../components/HistoryItem';
+import HistoryItem from './HistoryItem';
 
 const styles = theme => ({
   root: {

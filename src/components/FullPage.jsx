@@ -7,13 +7,13 @@ import { withStyles } from '@material-ui/core/styles';
 import ReactFullpage from '@fullpage/react-fullpage';
 
 // own
-import Page from '../components/Page';
-import Title from '../components/Title';
-import Skills from '../components/Skills';
-import History from '../components/History';
-import Contact from '../components/Contact';
-import Projects from '../components/Projects';
-import AboutThisPage from '../components/AboutThisPage';
+import Page from './Page';
+import Title from './Title';
+import Skills from './Skills';
+import History from './History';
+import Contact from './Contact';
+import Projects from './Projects';
+import AboutThisPage from './AboutThisPage';
 
 const styles = theme => ({
   root: {},
