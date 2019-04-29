@@ -10,7 +10,7 @@ const styles = theme => ({
   root: {
     textAlign: 'center',
     width: 'auto',
-    '&.active': {
+    '&.active, :hover': {
       '&:after': {
         content: '""',
         height: '2px',
@@ -20,11 +20,15 @@ const styles = theme => ({
         bottom: '0rem',
         left: 0,
         right: 0,
+        margin: '0 5px',
       }
     }
   },
   navLink: {
     padding: '0 1rem',
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
 });
 
