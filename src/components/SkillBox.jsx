@@ -65,7 +65,6 @@ class SkillBox extends Component {
       onClose,
       classes
     } = this.props;
-    console.log(familiar_with);
 
     return (
       <div className={classes.root}>
