@@ -13,10 +13,13 @@ const styles = theme => ({
   root: {
     // height just enough for summary: Typography h5 + padding/margin total 2rem + border
     maxHeight: 'calc(4rem + 2px)',
-    transition: 'max-height 1s ease-in-out',
+    transition: 'max-height 1s, width 1s',
     overflow: 'hidden',
+    width: '50%',
+    margin: '0 auto',
     '&.open': {
       maxHeight: 500,
+      width: '100%',
     },
   },
   summary: {
@@ -30,6 +33,24 @@ const styles = theme => ({
       backgroundColor: theme.palette.primary.light,
       borderColor: theme.palette.primary.main,
       cursor: 'pointer',
+    },
+    '&.open': {
+      justifyContent: 'flex-start',
+    },
+  },
+  period: {
+    order: 1,
+    transition: 'order 0.1s, opacity 0.5s',
+    '&.open': {
+      order: 2,
+      opacity: 0,
+    },
+  },
+  title: {
+    order: 2,
+    transition: 'order 0.1s',
+    '&.open': {
+      order: 1,
     },
   },
   detail: {
@@ -58,13 +79,16 @@ const HistoryItem = (props) => {
   } = props;
 
   const rootClasses = classes.root + (open ? " open" : "")
+  const summaryClasses = classes.summary + (open ? " open" : "")
+  const periodClasses = classes.period + (open ? " open" : "")
+  const titleClasses = classes.title + (open ? " open" : "")
   const detailClasses = classes.detail + (open ? " open" : "")
 
   return (
     <div className={rootClasses} onClick={onClick(id)}>
-      <Button variant="outlined" className={classes.summary}>
-        <Typography variant="h5">{period}</Typography>
-        <Typography variant="h5">{title}</Typography>
+      <Button variant="outlined" className={summaryClasses}>
+        <Typography variant="h5" className={periodClasses}>{period}</Typography>
+        <Typography variant="h5" className={titleClasses}>{title}</Typography>
       </Button>
       <div className={detailClasses}>
         <List dense subheader={<ListSubheader>Responsibilities: </ListSubheader>}>

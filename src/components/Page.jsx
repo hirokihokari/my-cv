@@ -21,8 +21,10 @@ const styles = theme => ({
     transform: 'translate(-50%, -50%)',
     maxHeight: '65%',
     overflow: 'hidden',
-    width: '80%',
-    maxWidth: 800,
+    width: '100%',
+    padding: '2rem',
+    display: 'flex',
+    justifyContent: 'center',
   },
 });
 

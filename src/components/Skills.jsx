@@ -17,6 +17,8 @@ import aws_logo from '../images/aws_logo.png';
 const styles = theme => ({
   root: {
     position: 'relative',
+    width: '80%',
+    maxWidth: 800,
   },
   row: {
     display: 'flex',

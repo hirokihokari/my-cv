@@ -9,6 +9,7 @@ import HistoryItem from './HistoryItem';
 const styles = theme => ({
   root: {
     height: '100%',
+    width: '100%',
   },
 });
 
