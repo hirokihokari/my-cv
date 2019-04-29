@@ -75,7 +75,6 @@ class History extends Component {
   }
 
   render() {
-    console.log('rendered');
     const { classes } = this.props;
     const { items } = this.state;
 

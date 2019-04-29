@@ -26,6 +26,7 @@ const FullPage = (props) => {
 
   return (
     <ReactFullpage
+      licenseKey="07C75077-5CA442A4-8433F9F4-186878F4"
       anchors={anchors}
       navigation
       menu="#menu"
