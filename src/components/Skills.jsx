@@ -37,7 +37,7 @@ const be_skills = [
   },
   {
     title: "AWS",
-    desc: "I set up server either here or on Heroku, but for liaison with other services, and scalability, tend to use AWS more often. Usual setup is Route53 -> Load Balancer -> EC2 with redundancy in different AV -> RDS in private subnet also in different AV for redundancy.",
+    desc: "I set up server either here or on Heroku, but for liaison with other services, and scalability, tend to use AWS more often. Usual setup is Route53 -> Load Balancer -> EC2 with redundancy in different AZ -> RDS in private subnet also in different AZ for redundancy.",
     logo: aws_logo,
     familiar_with: [ 'Load Balancer(ALB etc)', 'Route53', 'Certificate Manager', 'EC2', 'RDS', 'S3', ],
   },
