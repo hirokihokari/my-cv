@@ -42,7 +42,7 @@ const NavLinkItem = (props) => {
   return (
     <ListItem
       className={classes.root}
-      data-menuanchor={page}>
+      data-menuanchor={to || page}>
       <Link
         href={"#" + (to || page)}
         className={classes.navLink}>
