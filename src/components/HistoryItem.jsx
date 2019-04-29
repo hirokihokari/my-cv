@@ -18,8 +18,17 @@ const styles = theme => ({
     width: '50%',
     margin: '0 auto',
     '&.open': {
+      border: 'solid 1px',
+      borderColor: theme.palette.primary.light,
+      borderRadius: '1rem',
       maxHeight: 500,
       width: '100%',
+      paddingLeft: '1rem',
+      paddingRight: '1rem',
+      paddingBottom: '1rem',
+    },
+    '&.hidden': {
+      height: 0,
     },
   },
   summary: {
@@ -29,6 +38,7 @@ const styles = theme => ({
     margin: theme.spacing.unit,
     width: 'calc(100% - 1rem)',
     textTransform: 'none',
+    border: 'none',
     '&:hover': {
       backgroundColor: theme.palette.primary.light,
       borderColor: theme.palette.primary.main,
@@ -51,17 +61,31 @@ const styles = theme => ({
     transition: 'order 0.1s',
     '&.open': {
       order: 1,
+      position: 'relative',
+      '&:after': {
+        content: '""',
+        height: '2px',
+        backgroundColor: theme.palette.primary.main,
+        display: 'block',
+        position: 'absolute',
+        bottom: '0rem',
+        left: 0,
+        right: 0,
+      },
+
     },
   },
   detail: {
-    borderLeft: 'solid 1px rgba(0,0,0,0.3)',
-    borderRight: 'solid 1px rgba(0,0,0,0.3)',
-    borderRadius: 4,
+    display: 'flex',
+    justifyContent: 'space-around',
     opacity: 0,
-    transition: 'opacity 1s',
+    transition: 'opacity 2s',
     '&.open': {
       opacity: 1,
     }
+  },
+  sublist: {
+    padding: '0 2rem',
   },
 });
 
@@ -70,6 +94,7 @@ const HistoryItem = (props) => {
     classes,
     id,
     open,
+    hidden,
     period,
     title,
     responsibilities,
@@ -78,7 +103,7 @@ const HistoryItem = (props) => {
     onClick,
   } = props;
 
-  const rootClasses = classes.root + (open ? " open" : "")
+  const rootClasses = classes.root + (open ? " open" : "") + (hidden ? " hidden" : "")
   const summaryClasses = classes.summary + (open ? " open" : "")
   const periodClasses = classes.period + (open ? " open" : "")
   const titleClasses = classes.title + (open ? " open" : "")
@@ -92,12 +117,22 @@ const HistoryItem = (props) => {
       </Button>
       <div className={detailClasses}>
         <List dense subheader={<ListSubheader>Responsibilities: </ListSubheader>}>
-          { responsibilities.map((r, i) => {
-              return (
-                <ListItem key={"responsibilityList" + i}>
-                  <ListItemText primary={r} />
-                </ListItem>
-              )
+          { responsibilities.map((item, i) => {
+              {
+                return item instanceof Array
+                ? item.map((subitem, j) => {
+                    return (
+                      <ListItem className={classes.sublist} key={"responsibilitySubList" + i + j}>
+                        <ListItemText primary={subitem}/>
+                      </ListItem>
+                    )
+                  })
+                : (
+                  <ListItem key={"responsibilityList" + i}>
+                    <ListItemText primary={item} />
+                  </ListItem>
+                )
+              }
             })
           }
         </List>
