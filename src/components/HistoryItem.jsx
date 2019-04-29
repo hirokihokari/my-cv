@@ -69,7 +69,7 @@ const HistoryItem = (props) => {
         <List dense subheader={<ListSubheader>Responsibilities: </ListSubheader>}>
           { responsibilities.map((r, i) => {
               return (
-                <ListItem>
+                <ListItem key={"responsibilityList" + i}>
                   <ListItemText primary={r} />
                 </ListItem>
               )
@@ -79,7 +79,7 @@ const HistoryItem = (props) => {
         <List dense subheader={<ListSubheader>Projects: </ListSubheader>}>
           { projects.map((p, i) => {
               return (
-                <ListItem>
+                <ListItem key={"projectList" + i}>
                   <ListItemText primary={p.name} secondary={p.detail}/>
                 </ListItem>
               )
