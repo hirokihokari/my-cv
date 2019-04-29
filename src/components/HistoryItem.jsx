@@ -27,7 +27,8 @@ const styles = theme => ({
     width: 'calc(100% - 1rem)',
     textTransform: 'none',
     '&:hover': {
-      backgroundColor: 'rgba(0,0,0,0.1)',
+      backgroundColor: theme.palette.primary.light,
+      borderColor: theme.palette.primary.main,
       cursor: 'pointer',
     },
   },

@@ -30,7 +30,8 @@ const styles = theme => ({
     '&>*': { lineHeight: '100px' },
     '&:hover': {
       cursor: 'pointer',
-      backgroundColor: 'rgba(0,0,0,0.1)',
+      backgroundColor: theme.palette.primary.light,
+      borderColor: theme.palette.primary.main,
     },
   },
   detail: {

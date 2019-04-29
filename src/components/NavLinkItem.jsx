@@ -14,7 +14,7 @@ const styles = theme => ({
       '&:after': {
         content: '""',
         height: '2px',
-        background: '#333',
+        backgroundColor: theme.palette.primary.main,
         display: 'block',
         position: 'absolute',
         bottom: '0rem',
