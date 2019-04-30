@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 // material-ui
 import { withStyles } from '@material-ui/core/styles';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 // own
 import HistoryItem from './HistoryItem';
@@ -65,6 +66,9 @@ class History extends Component {
     };
 
     this.handleItemClick = this.handleItemClick.bind(this);
+    this.handleItemClose = this.handleItemClose.bind(this);
+    this.updateAllClosed = this.updateAllClosed.bind(this);
+    this.handleClickAway = this.handleClickAway.bind(this);
   }
 
   handleItemClick = (id) => (ev) => {
@@ -72,15 +76,45 @@ class History extends Component {
 
     if(items.find(item => item.id == id).open) {
       // closing
-      items[id].open = false;
-      items.map(item => (item.id != id) && (item.hidden = false));
+      this.handleItemClose(id);
     } else {
       // opening
-      items[id].open = true;
-      items.map(item => (item.id != id) && (item.hidden = true));
+      this.handleItemOpen(id);
     }
+  }
+
+  handleItemClose(id) {
+    const { items } = this.state;
+
+    items[id].open = false;
+    items.map(item => (item.id != id) && (item.hidden = false));
 
     this.setState({ items: items });
+  }
+
+  handleItemOpen(id) {
+    const { items } = this.state;
+
+    items[id].open = true;
+    items.map(item => (item.id != id) && (item.hidden = true));
+
+    this.setState({ items: items });
+  }
+
+  updateAllClosed() {
+    const { items } = this.state;
+
+    this.setState({
+      items: items.map(item => {
+        item.open = false;
+        item.hidden = false;
+        return item
+      })
+    })
+  }
+
+  handleClickAway() {
+    this.updateAllClosed();
   }
 
   render() {
@@ -88,23 +122,25 @@ class History extends Component {
     const { items } = this.state;
 
     return (
-      <div className={classes.root}>
-        { items.map((item, i) => {
-            return (
-              <HistoryItem
-                key={i}
-                id={i}
-                open={item.open}
-                hidden={item.hidden}
-                period={item.period}
-                title={item.title}
-                responsibilities={item.responsibilities}
-                projects={item.projects}
-                onClick={this.handleItemClick}/>
-            )
-          })
-        }
-      </div>
+      <ClickAwayListener onClickAway={this.handleClickAway}>
+        <div className={classes.root}>
+          { items.map((item, i) => {
+              return (
+                <HistoryItem
+                  key={i}
+                  id={i}
+                  open={item.open}
+                  hidden={item.hidden}
+                  period={item.period}
+                  title={item.title}
+                  responsibilities={item.responsibilities}
+                  projects={item.projects}
+                  onClick={this.handleItemClick}/>
+              )
+            })
+          }
+        </div>
+      </ClickAwayListener>
     );
   }
 }
