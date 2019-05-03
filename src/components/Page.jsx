@@ -5,6 +5,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   section: {
+    paddingTop: 0,
+    paddingLeft: 0,
+    transition: 'padding-top 0.5s, padding-left 0.5s',
+  },
+  menuOpen: {
+    paddingTop: '5rem',
+    paddingLeft: '5rem',
   },
   sectionContentWrap: {
     position: 'relative',
@@ -35,8 +42,10 @@ const Page = (props) => {
     children,
   } = props;
 
+  const sectionClass = "section" + " " + classes.section
+
   return (
-    <div className={"section " + classes.section}>
+    <div className={sectionClass}>
       <div className={classes.sectionContentWrap}>
         <div className={classes.sectionContent}>
           { component || children }

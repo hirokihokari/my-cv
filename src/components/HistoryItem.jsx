@@ -13,7 +13,7 @@ const styles = theme => ({
   root: {
     // height just enough for summary: Typography h5 + padding/margin total 2rem + border
     maxHeight: 'calc(4rem + 2px)',
-    transition: 'max-height 1s, width 1s',
+    transition: 'max-height 1s, width 0.5s',
     overflow: 'hidden',
     width: '50%',
     margin: '0 auto',

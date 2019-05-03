@@ -8,8 +8,19 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
-    width: 'auto',
+    height: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    overflow: 'hidden',
+    transition: 'height 1s',
+    '&.active': {
+      order: '-1',
+      height: 42,
+    },
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: theme.palette.primary.light,
+    },
     '&.active, :hover': {
       '&:after': {
         content: '""',
@@ -24,6 +35,11 @@ const styles = theme => ({
       }
     }
   },
+  menuOpen: {
+    height: 'auto',
+    paddingTop: 11,
+    paddingBottom: 11,
+  },
   navLink: {
     padding: '0 1rem',
     '&:hover': {
@@ -37,14 +53,21 @@ const NavLinkItem = (props) => {
     classes,
     page,
     to,
+    active,
+    menuOpen,
+    onClick,
   } = props;
+
+  const itemClass = classes.root +
+    (menuOpen ? " " + classes.menuOpen : "") +
+    (active ? " active" : "");
 
   return (
     <ListItem
-      className={classes.root}
-      data-menuanchor={to || page}>
+      className={itemClass}
+      data-menuanchor={to}
+      onClick={() => onClick(to)}>
       <Link
-        href={"#" + (to || page)}
         className={classes.navLink}>
         <Typography variant="body1">{page.toUpperCase()}</Typography>
       </Link>
