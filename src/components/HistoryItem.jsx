@@ -14,10 +14,16 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Check from '@material-ui/icons/Check';
 
 const styles = theme => ({
+  '@keyframes fadePopIn': {
+    '0%': {opacity: 0},
+    '50%': { opacity: 0},
+    '75%': { opacity: .5},
+    to: {opacity: 1},
+  },
   root: {
     // height just enough for summary: Typography h5 + padding/margin total 2rem + border
     maxHeight: 'calc(4rem + 2px)',
-    transition: 'max-height 1s, width 0.5s',
+    transition: 'all 0.5s ease-in-out',
     overflow: 'hidden',
     width: '50%',
     margin: '0 auto',
@@ -25,7 +31,7 @@ const styles = theme => ({
       border: 'solid 1px',
       borderColor: theme.palette.primary.light,
       borderRadius: '1rem',
-      maxHeight: 500,
+      maxHeight: 'calc(100vh - 100px)',
       width: '100%',
       paddingLeft: '1rem',
       paddingRight: '1rem',
@@ -49,6 +55,7 @@ const styles = theme => ({
       cursor: 'pointer',
     },
     '&.open': {
+      animation: '1s fadePopIn',
       justifyContent: 'flex-start',
     },
   },
@@ -86,7 +93,7 @@ const styles = theme => ({
     '&.open': {
       opacity: 1,
       transition: 'opacity 1s',
-      transitionDelay: '0.5s',
+      transitionDelay: '0.7s',
     }
   },
   sublist: {
@@ -104,6 +111,7 @@ const HistoryItem = (props) => {
     title,
     responsibilities,
     projects,
+    recent,
     detail,
     onClick,
   } = props;
@@ -117,11 +125,11 @@ const HistoryItem = (props) => {
   return (
     <div className={rootClasses} onClick={onClick(id)}>
       <Button variant="outlined" className={summaryClasses}>
-        <Typography variant="h5" className={periodClasses}>{period}</Typography>
+        <Typography variant="h5" color={recent ? "primary" : "default"}className={periodClasses}>{period}</Typography>
         <Typography variant="h5" className={titleClasses}>{title}</Typography>
       </Button>
       <div className={detailClasses}>
-        <List dense subheader={<ListSubheader>Responsibilities: </ListSubheader>}>
+        <List subheader={<ListSubheader>Responsibilities: </ListSubheader>}>
           { responsibilities.map((item, i) => {
               {
                 return item instanceof Array

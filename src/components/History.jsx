@@ -144,6 +144,7 @@ class History extends Component {
                   title={item.title}
                   responsibilities={item.responsibilities}
                   projects={item.projects}
+                  recent={i == 0}
                   onClick={this.handleItemClick}/>
               )
             })
