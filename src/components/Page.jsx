@@ -26,7 +26,7 @@ const styles = theme => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    maxHeight: '65%',
+    maxHeight: 'calc(100vh - 100px)', // deduct roughtly the height of header
     overflow: 'hidden',
     width: '100%',
     padding: '2rem',

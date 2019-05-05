@@ -27,12 +27,21 @@ const items = [
       {
         name: 'Package Purchasing Platform',
         detail: 'A web application with User Interface for purchase a service, using apis from an existing project',
-        technologies: [ 'EC2/RDS', 'Ruby on Rails', 'React', 'Chargebee', ]
+        implementation: [
+          'nginx as web server, RoR(puma) as application server, and postgresql as database; all on AWS',
+          'Rails serves as middleman between frontend, service server(existing service), and Chargebee',
+          'Modulize DOM(-esque) with React',
+          'tests not written due to the restriction on budget',
+        ]
       },
       {
         name: 'Community SNS',
         detail: 'An SNS service where users/guests can post and reply texts and/or images',
-        technologies: [ 'EC2/RDS', 'Ruby on Rails', 'Javascript/jQuery', ]
+        implementation: [
+          'nginx as web server, RoR(puma) as application server, and postgresql as database',
+          'Mostly RoR oriented; renders "views" with RoR and updates displayed data with ajax requests',
+          'tests not written due to the restriction on budget',
+        ]
       },
     ],
   },
@@ -46,7 +55,7 @@ const items = [
       {
         name: '',
         detail: '',
-        technologies: [ '', ],
+        implementation: [ '', ],
       }
     ]
   },

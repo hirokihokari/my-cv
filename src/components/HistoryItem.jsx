@@ -8,6 +8,10 @@ import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+
+// material-ui icons
+import Check from '@material-ui/icons/Check';
 
 const styles = theme => ({
   root: {
@@ -136,12 +140,26 @@ const HistoryItem = (props) => {
             })
           }
         </List>
-        <List dense subheader={<ListSubheader>Projects: </ListSubheader>}>
+        <List subheader={<ListSubheader>Projects: </ListSubheader>}>
           { projects.map((p, i) => {
               return (
-                <ListItem key={"projectList" + i}>
-                  <ListItemText primary={p.name} secondary={p.detail}/>
-                </ListItem>
+                <div key={"projectList" + i}>
+                  <ListItem>
+                    <ListItemText primary={p.name} secondary={p.detail}/>
+                  </ListItem>
+                  <List dense>
+                    { p.implementation.map((t, j) => {
+                      return (
+                        <ListItem key={"projectList" + i + "-implementation" + j} dense>
+                          <ListItemIcon>
+                            <Check />
+                          </ListItemIcon>
+                          <ListItemText primary={p.implementation[j]}/>
+                        </ListItem>
+                      )
+                    })}
+                  </List>
+                </div>
               )
             })
           }
