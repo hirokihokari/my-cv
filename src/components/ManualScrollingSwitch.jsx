@@ -33,6 +33,7 @@ const ManualScrollingSwitch = (props) => {
           <Switch
             checked={manualScrolling}
             onChange={handleManualScrollingSwitch}
+            color="primary"
             value="checkedA"/>
         }
         label="Manual Scrolling"/>
