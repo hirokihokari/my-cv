@@ -16,7 +16,7 @@ const Title = (props) => {
   return (
     <div className={classes.root}>
       <Typography variant='h2'>Hiroki Hokari</Typography>
-      <Typography variant='h2'>Web Developer</Typography>
+      <Typography variant='h4'>Web Developer</Typography>
     </div>
   );
 }
