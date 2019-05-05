@@ -83,9 +83,10 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-around',
     opacity: 0,
-    transition: 'opacity 2s',
     '&.open': {
       opacity: 1,
+      transition: 'opacity 1s',
+      transitionDelay: '0.5s',
     }
   },
   sublist: {
