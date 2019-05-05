@@ -8,27 +8,27 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
   root: {
-    height: 0,
+    maxHeight: 0,
     paddingTop: 0,
     paddingBottom: 0,
     overflow: 'hidden',
-    transition: 'height 1s',
-    '&.active': {
-      order: '-1',
-      height: 42,
-    },
+    borderRadius: 5,
+    transition: 'all 0.5s ease-out',
     '&:hover': {
       cursor: 'pointer',
       backgroundColor: theme.palette.primary.light,
     },
-    '&.active, :hover': {
+    '&.active': {
+      order: '-1',
+      maxHeight: 42,
+      height: 42,
       '&:after': {
         content: '""',
         height: '2px',
         backgroundColor: theme.palette.primary.main,
         display: 'block',
         position: 'absolute',
-        bottom: '0rem',
+        bottom: '2px',
         left: 0,
         right: 0,
         margin: '0 5px',
@@ -36,7 +36,7 @@ const styles = theme => ({
     }
   },
   menuOpen: {
-    height: 'auto',
+    maxHeight: 42,
     paddingTop: 11,
     paddingBottom: 11,
   },

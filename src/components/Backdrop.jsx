@@ -10,7 +10,9 @@ const Backdrop = (props) => {
   const { fullPageContext } = props;
 
   return (
-    <BackdropMUI open={fullPageContext.state.menuOpen}/>
+    <BackdropMUI
+      open={fullPageContext.state.menuOpen}
+      transitionDuration={1000}/>
   );
 };
 

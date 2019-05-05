@@ -12,14 +12,18 @@ const styles = theme => ({
   root: {
     position: 'fixed',
     top: '1vmin',
-    left: '1rem',
+    left: '1vmin',
     width: 'auto',
     zIndex: 99,
+  },
+  sectionNav: {
+    backgroundColor: '#fafafa',
+    padding: '0.5rem 1rem',
+    borderRadius: 5,
   },
   menu: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#fafafa',
   },
 });
 
@@ -62,6 +66,7 @@ class Navbar extends Component {
       <header id="navigation" className={classes.root}>
         <div className={classes.sectionNav}>
           <List id="menu"
+            dense
             className={classes.menu}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}>
