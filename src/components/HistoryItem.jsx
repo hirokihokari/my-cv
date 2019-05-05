@@ -47,8 +47,6 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: theme.spacing.unit,
-    margin: theme.spacing.unit,
     width: 'calc(100% - 1rem)',
     border: 'none',
     '&.open': {
@@ -61,8 +59,7 @@ const styles = theme => ({
     justifyContent: 'space-around',
     width: '100%',
     border: 'none',
-    padding: theme.spacing.unit,
-    margin: theme.spacing.unit,
+    padding: theme.spacing.unit * 2,
     textTransform: 'none',
     '&.open': {
       justifyContent: 'flex-start',
