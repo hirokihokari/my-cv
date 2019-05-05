@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 // material-ui
 import { withStyles } from '@material-ui/core/styles';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 // own
 import HistoryItem from './HistoryItem';
@@ -131,7 +130,6 @@ class History extends Component {
     const { items } = this.state;
 
     return (
-      <ClickAwayListener onClickAway={this.handleClickAway}>
         <div className={classes.root}>
           { items.map((item, i) => {
               return (
@@ -145,12 +143,12 @@ class History extends Component {
                   responsibilities={item.responsibilities}
                   projects={item.projects}
                   recent={i == 0}
-                  onClick={this.handleItemClick}/>
+                  onClick={this.handleItemClick}
+                  onClickAway={this.handleClickAway}/>
               )
             })
           }
         </div>
-      </ClickAwayListener>
     );
   }
 }

@@ -9,9 +9,11 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 // material-ui icons
 import Check from '@material-ui/icons/Check';
+import Close from '@material-ui/icons/Close';
 
 const styles = theme => ({
   '@keyframes fadePopIn': {
@@ -44,19 +46,36 @@ const styles = theme => ({
   summary: {
     display: 'flex',
     justifyContent: 'space-around',
+    alignItems: 'center',
     padding: theme.spacing.unit,
     margin: theme.spacing.unit,
     width: 'calc(100% - 1rem)',
-    textTransform: 'none',
     border: 'none',
+    '&.open': {
+      animation: '1s fadePopIn',
+      justifyContent: 'space-between',
+    },
+  },
+  summaryButton: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '100%',
+    border: 'none',
+    padding: theme.spacing.unit,
+    margin: theme.spacing.unit,
+    textTransform: 'none',
+    '&.open': {
+      justifyContent: 'flex-start',
+    },
     '&:hover': {
       backgroundColor: theme.palette.primary.light,
       borderColor: theme.palette.primary.main,
       cursor: 'pointer',
     },
-    '&.open': {
-      animation: '1s fadePopIn',
-      justifyContent: 'flex-start',
+    '&.open:hover': {
+      backgroundColor: 'initial',
+      borderColor: 'initial',
+      cursor: 'initial',
     },
   },
   period: {
@@ -83,7 +102,14 @@ const styles = theme => ({
         left: 0,
         right: 0,
       },
-
+    },
+  },
+  closeButton: {
+    width: 'auto',
+    '&:hover': {
+      backgroundColor: theme.palette.primary.light,
+      borderColor: theme.palette.primary.main,
+      cursor: 'pointer',
     },
   },
   detail: {
@@ -114,68 +140,82 @@ const HistoryItem = (props) => {
     recent,
     detail,
     onClick,
+    onClickAway,
   } = props;
 
-  const rootClasses = classes.root + (open ? " open" : "") + (hidden ? " hidden" : "")
-  const summaryClasses = classes.summary + (open ? " open" : "")
-  const periodClasses = classes.period + (open ? " open" : "")
-  const titleClasses = classes.title + (open ? " open" : "")
-  const detailClasses = classes.detail + (open ? " open" : "")
+  const rootClasses          = classes.root          + (open ? " open" : "") + (hidden ? " hidden" : "")
+  const summaryClasses       = classes.summary       + (open ? " open" : "")
+  const summaryButtonClasses = classes.summaryButton + (open ? " open" : "")
+  const closeButtonClasses   = classes.closeButton   + (open ? " open" : "")
+  const periodClasses        = classes.period        + (open ? " open" : "")
+  const titleClasses         = classes.title         + (open ? " open" : "")
+  const detailClasses        = classes.detail        + (open ? " open" : "")
 
   return (
     <div className={rootClasses} onClick={onClick(id)}>
-      <Button variant="outlined" className={summaryClasses}>
-        <Typography variant="h5" color={recent ? "primary" : "default"}className={periodClasses}>{period}</Typography>
-        <Typography variant="h5" className={titleClasses}>{title}</Typography>
-      </Button>
-      <div className={detailClasses}>
-        <List subheader={<ListSubheader>Responsibilities: </ListSubheader>}>
-          { responsibilities.map((item, i) => {
-              {
-                return item instanceof Array
-                ? item.map((subitem, j) => {
-                    return (
-                      <ListItem className={classes.sublist} key={"responsibilitySubList" + i + j}>
-                        <ListItemText primary={subitem}/>
-                      </ListItem>
-                    )
-                  })
-                : (
-                  <ListItem key={"responsibilityList" + i}>
-                    <ListItemText primary={item} />
-                  </ListItem>
-                )
-              }
-            })
+      <ClickAwayListener onClickAway={onClickAway}>
+        <div className={summaryClasses}>
+          <Button variant="text" className={summaryButtonClasses}>
+            <Typography variant="h5" color={recent ? "primary" : "default"} className={periodClasses}>{period}</Typography>
+            <Typography variant="h5" className={titleClasses}>{title}</Typography>
+          </Button>
+          { open
+            && (
+              <Button className={closeButtonClasses}>
+                <Close/>
+              </Button>
+            )
           }
-        </List>
-        <List subheader={<ListSubheader>Projects: </ListSubheader>}>
-          { projects.map((p, i) => {
-              return (
-                <div key={"projectList" + i}>
-                  <ListItem>
-                    <ListItemText primary={p.name} secondary={p.detail}/>
-                  </ListItem>
-                  <List dense>
-                    { p.implementation.map((t, j) => {
+        </div>
+        <div className={detailClasses}>
+          <List subheader={<ListSubheader>Responsibilities: </ListSubheader>}>
+            { responsibilities.map((item, i) => {
+                {
+                  return item instanceof Array
+                  ? item.map((subitem, j) => {
                       return (
-                        <ListItem key={"projectList" + i + "-implementation" + j} dense>
-                          <ListItemIcon>
-                            <Check />
-                          </ListItemIcon>
-                          <ListItemText primary={p.implementation[j]}/>
+                        <ListItem className={classes.sublist} key={"responsibilitySubList" + i + j}>
+                          <ListItemText primary={subitem}/>
                         </ListItem>
                       )
-                    })}
-                  </List>
-                </div>
-              )
-            })
-          }
-        </List>
-      </div>
+                    })
+                  : (
+                    <ListItem key={"responsibilityList" + i}>
+                      <ListItemText primary={item} />
+                    </ListItem>
+                  )
+                }
+              })
+            }
+          </List>
+          <List subheader={<ListSubheader>Projects: </ListSubheader>}>
+            { projects.map((p, i) => {
+                return (
+                  <div key={"projectList" + i}>
+                    <ListItem>
+                      <ListItemText primary={p.name} secondary={p.detail}/>
+                    </ListItem>
+                    <List dense>
+                      { p.implementation.map((t, j) => {
+                        return (
+                          <ListItem key={"projectList" + i + "-implementation" + j} dense>
+                            <ListItemIcon>
+                              <Check />
+                            </ListItemIcon>
+                            <ListItemText primary={p.implementation[j]}/>
+                          </ListItem>
+                        )
+                      })}
+                    </List>
+                  </div>
+                )
+              })
+            }
+          </List>
+        </div>
+      </ClickAwayListener>
     </div>
-    );
-  }
+  );
+}
 
 export default withStyles(styles)(HistoryItem);
