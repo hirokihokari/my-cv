@@ -23,15 +23,6 @@ const styles = theme => ({
   },
 });
 
-const sections = [
-  { label: 'Title', hrefLabel: 'Title' },
-  { label: 'Skills', hrefLabel: 'Skills' },
-  { label: 'History', hrefLabel: 'History' },
-  { label: 'Contact', hrefLabel: 'Contact' },
-  { label: 'Projects', hrefLabel: 'Projects' },
-  { label: 'About This Page', hrefLabel: 'AboutThisPage' },
-];
-
 class Navbar extends Component {
   constructor(props) {
     super(props);
@@ -42,19 +33,19 @@ class Navbar extends Component {
   }
 
   handleMouseEnter() {
-    const { handleMenuOpen } = this.props.fullPageContext;
+    const { handleMenuOpen } = this.props.fullPageContext.callbacks;
 
     handleMenuOpen();
   }
 
   handleMouseLeave() {
-    const { handleMenuClose } = this.props.fullPageContext;
+    const { handleMenuClose } = this.props.fullPageContext.callbacks;
 
     handleMenuClose();
   }
 
   handleItemClick(href) {
-    const { handleMenuClose } = this.props.fullPageContext;
+    const { handleMenuClose } = this.props.fullPageContext.callbacks;
 
     window.location = "#" + href;
 
@@ -64,11 +55,11 @@ class Navbar extends Component {
   render() {
     const { fullPageContext, classes } = this.props;
 
-    const { state } = fullPageContext;
+    const { state, sections } = fullPageContext;
     const { currentIndex, menuOpen } = state;
 
     return (
-      <header className={classes.root}>
+      <header id="navigation" className={classes.root}>
         <div className={classes.sectionNav}>
           <List id="menu"
             className={classes.menu}

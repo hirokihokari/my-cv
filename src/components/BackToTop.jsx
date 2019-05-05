@@ -23,7 +23,8 @@ const BackToTop = (props) => {
       href="#Title"
       color="primary"
       aria-label="Back"
-      className={classes.root}>
+      className={classes.root}
+      id="backToTop">
       <ArrowUpward />
     </Fab>
   );

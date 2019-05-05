@@ -5,11 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // own
-import { FullPageProvider } from './FullPageProvider';
 import FullPage from './FullPage';
-import Navbar from './Navbar';
-import BackToTop from './BackToTop';
-import Backdrop from './Backdrop';
 
 const theme = createMuiTheme({
   palette: {
@@ -41,13 +37,8 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={theme}>
         <div className={classes.app}>
-          <FullPageProvider>
-            <CssBaseline/>
-            <Navbar />
-            <FullPage />
-            <Backdrop />
-            <BackToTop/>
-          </FullPageProvider>
+          <CssBaseline/>
+          <FullPage />
         </div>
       </MuiThemeProvider>
     );
