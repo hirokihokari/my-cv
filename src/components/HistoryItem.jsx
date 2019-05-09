@@ -149,8 +149,8 @@ const HistoryItem = (props) => {
   const detailClasses        = classes.detail        + (open ? " open" : "")
 
   return (
-    <div className={rootClasses} onClick={onClick(id)}>
-      <ClickAwayListener onClickAway={onClickAway}>
+    <ClickAwayListener onClickAway={onClickAway}>
+      <div className={rootClasses} onClick={onClick(id)}>
         <div className={summaryClasses}>
           <Button variant="text" className={summaryButtonClasses}>
             <Typography variant="h5" color={recent ? "primary" : "default"} className={periodClasses}>{period}</Typography>
@@ -210,8 +210,8 @@ const HistoryItem = (props) => {
             }
           </List>
         </div>
-      </ClickAwayListener>
-    </div>
+      </div>
+    </ClickAwayListener>
   );
 }
 
