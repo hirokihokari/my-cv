@@ -114,7 +114,7 @@ class Skills extends Component {
 
     return (
       <div className={classes.root}>
-        <Typography variant="h4" gutterBottom>Backend</Typography>
+        <Typography variant="h5" gutterBottom>Backend</Typography>
         <div className={classes.row}>
           { be_skills.map((sk) => {
             return (
@@ -132,7 +132,7 @@ class Skills extends Component {
             )
           })}
         </div>
-        <Typography variant="h4" gutterBottom>Frontend</Typography>
+        <Typography variant="h5" gutterBottom>Frontend</Typography>
         <div className={classes.row}>
           { fe_skills.map((sk) => {
             return (

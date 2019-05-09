@@ -69,7 +69,7 @@ const NavLinkItem = (props) => {
       onClick={() => onClick(to)}>
       <Link
         className={classes.navLink}>
-        <Typography variant="body1">{page.toUpperCase()}</Typography>
+        <Typography variant="h6">{page.toUpperCase()}</Typography>
       </Link>
     </ListItem>
   )
