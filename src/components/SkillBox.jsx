@@ -43,6 +43,19 @@ const styles = theme => ({
     maxWidth: '700px',
     minHeight: '30vh',
     padding: '3rem',
+    display: 'grid',
+    gridTemplateColumns: 'auto auto',
+    gridColumnGap: '1rem',
+    gridRowGap: '1rem',
+  },
+  modalHeader: {
+    gridColumnStart: 1,
+    gridColumnEnd: 3,
+  },
+  modalLeft: {
+    padding: '1rem',
+  },
+  modalRight: {
   },
   closeBtn: {
     float: 'right',
@@ -78,21 +91,27 @@ class SkillBox extends Component {
           open={mode=="active"}
           onBackdropClick={onClose}>
           <Paper className={classes.detail}>
-            <IconButton className={classes.closeBtn} onClick={onClose} aria-label="Close">
-              <Close/>
-            </IconButton>
-            <Typography variant="h4" gutterBottom>{title}</Typography>
-            <Typography variant="h6" gutterBottom>{desc}</Typography>
-            <List dense subheader={<ListSubheader>I&apos;m familiar with: </ListSubheader>}>
-              { familiar_with.map( (item, i) => {
-                  return (
-                    <ListItem key={i}>
-                      <ListItemText primary={item}/>
-                    </ListItem>
-                  )
-                })
-              }
-            </List>
+            <div className={classes.modalHeader}>
+              <IconButton className={classes.closeBtn} onClick={onClose} aria-label="Close">
+                <Close/>
+              </IconButton>
+              <Typography variant="h4" gutterBottom>{title}</Typography>
+            </div>
+            <div className={classes.modalLeft}>
+              <Typography variant="h6" gutterBottom>{desc}</Typography>
+            </div>
+            <div className={classes.modalRight}>
+              <List dense subheader={<ListSubheader>I&apos;m familiar with: </ListSubheader>}>
+                { familiar_with.map( (item, i) => {
+                    return (
+                      <ListItem key={i}>
+                        <ListItemText primary={item}/>
+                      </ListItem>
+                    )
+                  })
+                }
+              </List>
+            </div>
           </Paper>
         </Modal>
       </div>
