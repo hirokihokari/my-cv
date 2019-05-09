@@ -18,9 +18,10 @@ const items = [
     period: '2018 / 9 ~ Present',
     title: 'Freelance Web Developer',
     responsibilities: [
-      'Design and Structure application through communication with project owner/manager',
-      'Develop  code with:',
+      'Design, structure, host, and maintain application',
+      'Develop code with:',
       ['1. Agile principle / MVP', '2. Behavior Driven procedure', '3. Maintainable, semantic coding'],
+      'Offer reasonable develop plan for the client on a case-by-case basis',
     ],
     projects: [
       {
@@ -30,7 +31,6 @@ const items = [
           'nginx as web server, RoR(puma) as application server, and postgresql as database; all on AWS',
           'Rails serves as middleman between frontend, service server(existing service), and Chargebee',
           'Modulize DOM(-esque) with React',
-          'tests not written due to the restriction on budget',
         ]
       },
       {
@@ -39,7 +39,6 @@ const items = [
         implementation: [
           'nginx as web server, RoR(puma) as application server, and postgresql as database',
           'Mostly RoR oriented; renders "views" with RoR and updates displayed data with ajax requests',
-          'tests not written due to the restriction on budget',
         ]
       },
     ],
@@ -48,14 +47,29 @@ const items = [
     period: '2016 / 3 ~ 2018 / 8',
     title: 'Web Dev at Incubit (Tokyo)',
     responsibilities: [
-      ''
+      'Coding for web applications with Rails and javascript',
+      'Coding for hybrid apps using either Cordova or Ionic with angular(v1)',
+      'Maintenance/Update tasks for existing projects',
     ],
     projects: [
       {
-        name: '',
-        detail: '',
-        implementation: [ '', ],
-      }
+        name: 'Property Rental Service',
+        detail: 'A hybrid app matching owners of properties and renters',
+        implementation: [
+          'Ionic to compile web code as mobile apps(Andriod/iOS)',
+          'Use angular(v1) as the frontend framework',
+          'Rails accepts queries and return json data to frontend',
+        ],
+      },
+      {
+        name: 'Child Daycare Service',
+        detail: 'A web app that allows parents to search and book a daycare facilities for their children, and the facility admins to manage their bookings',
+        implementation: [
+          'Rails to render frontend, as well as return json data to ajax requests',
+          'mostly jQuery for frontend(DOM manipulation/ajax requests)',
+          'Tests using RSpec are written for backend code',
+        ],
+      },
     ]
   },
 ];
