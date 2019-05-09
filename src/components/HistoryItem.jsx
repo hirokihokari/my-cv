@@ -185,7 +185,7 @@ const HistoryItem = (props) => {
               })
             }
           </List>
-          <List subheader={<ListSubheader>Projects: </ListSubheader>}>
+          <List subheader={<ListSubheader>Major Projects: </ListSubheader>}>
             { projects.map((p, i) => {
                 return (
                   <div key={"projectList" + i}>
