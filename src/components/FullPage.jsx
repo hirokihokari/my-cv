@@ -14,7 +14,6 @@ import Skills from './Skills';
 import History from './History';
 import Contact from './Contact';
 import Projects from './Projects';
-import AboutThisPage from './AboutThisPage';
 import Navbar from './Navbar';
 import ManualScrollingSwitch from './ManualScrollingSwitch';
 import BackToTop from './BackToTop';
@@ -31,7 +30,6 @@ const sections = [
   { label: 'History', hrefLabel: 'History' },
   { label: 'Contact', hrefLabel: 'Contact' },
   { label: 'Projects', hrefLabel: 'Projects' },
-  { label: 'About This Page', hrefLabel: 'AboutThisPage' },
 ];
 
 const anchors = sections.map(sec => { return sec.hrefLabel });
@@ -104,7 +102,6 @@ class FullPage extends Component {
                 <Page index={2} component={<History/>}/>
                 <Page index={3} component={<Contact/>}/>
                 <Page index={4} component={<Projects/>}/>
-                <Page index={5} component={<AboutThisPage/>}/>
                 <Navbar />
                 <ManualScrollingSwitch />
                 <Backdrop />
