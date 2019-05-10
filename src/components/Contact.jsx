@@ -41,7 +41,7 @@ const Contact = (props) => {
             primary="hiro.hokari.0722@gmail.com">
           </ListItemText>
         </ListItem>
-        <ListItem button component="a" target="_blank" href="http://linkedin.com/in/hiroki-h" className={classes.item}>
+        <ListItem button component="a" target="_blank" rel="noreferrer" href="http://linkedin.com/in/hiroki-h" className={classes.item}>
           <ListItemIcon>
             <People/>
           </ListItemIcon>
