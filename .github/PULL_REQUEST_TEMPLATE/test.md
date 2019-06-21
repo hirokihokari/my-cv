@@ -1,11 +1,3 @@
----
-name: Pull Request template
-about: Pull Request template
-title: "[Story #000][Ticket #000] Title"
-labels: 'WIP'
-assignees: ''
-
----
 # Ref
 Issue # or url
 
