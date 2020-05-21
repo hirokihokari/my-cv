@@ -8,6 +8,8 @@ import Link from '@material-ui/core/Link';
 // material-ui
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+// material-ui icons
+import Launch from '@material-ui/icons/Launch';
 
 const styles = theme => ({
   root: {},
@@ -19,14 +21,12 @@ const Projects = (props) => {
   const mtf_url = "http://hirokihokari.github.io/markdown_table_formatter"
 
   return (
-    // <div className={classes.root}>
-    //   <Typography variant="h6" align="center">Coming up soon</Typography>
-    // </div>
     <List>
       <ListItem>
           <Link href={mtf_url} target="_blank">
             <Typography variant="h5">
               * Markdown table formatter. Pretty beta, but functional.
+              <Launch/>
             </Typography>
           </Link>
       </ListItem>
