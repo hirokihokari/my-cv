@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 // material-ui core modules
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { withStyles, createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { withStyles, createTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 // own
 import FullPage from './FullPage';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       light: '#fdd4b4',

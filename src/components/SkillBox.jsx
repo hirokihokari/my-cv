@@ -89,7 +89,7 @@ class SkillBox extends Component {
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
           open={mode=="active"}
-          onBackdropClick={onClose}>
+          onClose={onClose}>
           <Paper className={classes.detail}>
             <div className={classes.modalHeader}>
               <IconButton className={classes.closeBtn} onClick={onClose} aria-label="Close">

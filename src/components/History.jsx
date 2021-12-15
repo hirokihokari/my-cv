@@ -79,69 +79,35 @@ class History extends Component {
     super(props);
 
     this.state = {
-      items: items.map((item, i) => {
-        item.open = false;
-        item.hidden = false;
-        item.id = i;
-        return item;
-      }),
+      openedItem: null,
     };
 
     this.handleItemClick = this.handleItemClick.bind(this);
-    this.handleItemClose = this.handleItemClose.bind(this);
     this.updateAllClosed = this.updateAllClosed.bind(this);
     this.handleClickAway = this.handleClickAway.bind(this);
   }
 
-  handleItemClick = (id) => (ev) => {
-    const { items } = this.state;
-
-    if(items.find(item => item.id == id).open) {
-      // closing
-      this.handleItemClose(id);
-    } else {
-      // opening
-      this.handleItemOpen(id);
-    }
-  }
-
-  handleItemClose(id) {
-    const { items } = this.state;
-
-    items[id].open = false;
-    items.map(item => (item.id != id) && (item.hidden = false));
-
-    this.setState({ items: items });
-  }
-
-  handleItemOpen(id) {
-    const { items } = this.state;
-
-    items[id].open = true;
-    items.map(item => (item.id != id) && (item.hidden = true));
-
-    this.setState({ items: items });
+  handleItemClick = (index) => (ev) => {
+    this.setState((state, props) => ({
+      openedItem: state.openedItem == index ? null : index
+    }));
   }
 
   updateAllClosed() {
-    const { items } = this.state;
-
-    this.setState({
-      items: items.map(item => {
-        item.open = false;
-        item.hidden = false;
-        return item
-      })
-    })
+    setTimeout(() => {
+      this.setState({ openedItem: null });
+    }, 100000)
   }
 
   handleClickAway() {
-    this.updateAllClosed();
+    if (this.state.openedItem != null) {
+      this.updateAllClosed();
+    }
   }
 
   render() {
     const { classes } = this.props;
-    const { items } = this.state;
+    const { openedItem } = this.state;
 
     return (
         <div className={classes.root}>
@@ -150,8 +116,7 @@ class History extends Component {
                 <HistoryItem
                   key={i}
                   id={i}
-                  open={item.open}
-                  hidden={item.hidden}
+                  open={openedItem == i}
                   period={item.period}
                   title={item.title}
                   responsibilities={item.responsibilities}

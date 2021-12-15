@@ -59,7 +59,7 @@ const styles = theme => ({
     justifyContent: 'space-around',
     width: '100%',
     border: 'none',
-    padding: theme.spacing.unit * 2,
+    padding: theme.spacing(2),
     textTransform: 'none',
     '&.open': {
       justifyContent: 'flex-start',
@@ -153,7 +153,7 @@ const HistoryItem = (props) => {
       <div className={rootClasses} onClick={onClick(id)}>
         <div className={summaryClasses}>
           <Button variant="text" className={summaryButtonClasses}>
-            <Typography variant="h5" color={recent ? "primary" : "default"} className={periodClasses}>{period}</Typography>
+            <Typography variant="h5" color={recent ? "primary" : "inherit"} className={periodClasses}>{period}</Typography>
             <Typography variant="h5" className={titleClasses}>{title}</Typography>
           </Button>
           { open
